@@ -366,7 +366,6 @@ img {
 }
 
 .humburger {
-    position: relative;
     width: 40px;
     height: 30px;
     padding: 0;
@@ -380,26 +379,8 @@ img {
     width: 100%;
     height: 4px;
     background-color: var(--accent-color);
-}
-
-.humburger span::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: var(--accent-color);
     top: 0;
-}
-
-.humburger span::after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: var(--accent-color);
-    bottom: 0;
+    margin-bottom: 5px;
 }
 
 @media(max-width: 1200px) {
@@ -414,51 +395,55 @@ img {
         display: block;
 
     }
+}
 
-    .humburger-active span {
-        transform: rotate(-45deg);
-    }
+.humburger-active span {
+    transition: all 0.3s;
 
+}
 
-    .humburger-active span::before {
-        width: 0;
-        height: 0;
-    }
+.humburger-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
 
-    .humburger-active span::after {
-        transform: rotate(90deg);
-    }
+.humburger-active span:nth-child(2) {
+    transform: scale(0);
 
-    .menu {
-        position: absolute;
-        top: 110%;
-        background-color: var(--accent-color);
-        padding: 16px;
-        transform: translateY(-1000px);
-    }
+}
 
-    .menu-actvie {
-        transform: translateY(0);
-    }
+.humburger-active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
 
-    .menu__list {
-        flex-direction: column;
-    }
+.menu {
+    position: absolute;
+    top: 110%;
+    background-color: var(--accent-color);
+    padding: 16px;
+    transform: translateX(-1000px);
+    transition: all 0.3s;
+}
 
-    .menu__item {
-        margin-right: 0;
-        margin-bottom: 24px;
-    }
+.menu-actvie {
+    transform: translateY(0);
+}
 
-    .menu__link {
-        color: #ffffff;
-        font-size: 24px;
-    }
+.menu__list {
+    flex-direction: column;
+}
 
-    .menu__link:hover {
-        color: #ffffff;
-    }
+.menu__item {
+    margin-right: 0;
+    margin-bottom: 24px;
+}
 
+.menu__link {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.menu__link:hover {
+    color: #ffffff;
 }
 
 @media(max-width: 768px) {
@@ -549,14 +534,10 @@ img {
         height: 2px;
     }
 
-    .humburger span::before {
-        height: 2px;
+    .humburger-active span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
     }
-
-    .humburger span::after {
-        height: 2px;
-    }
-
+    
     .menu {
         left: 0;
         right: 0;
